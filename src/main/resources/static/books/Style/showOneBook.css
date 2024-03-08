@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('../../showOneBook.jpg') no-repeat center;
+    background-size: cover;
+
+}
+
+.bar{
+    gap: 40px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.bar .Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    color: #193d49;
+    font-family: "Lucida Handwriting", cursive;
+    font-size: 30px;
+    /*margin-left: 20px;*/
+    border-style: solid;
+    border-color: #2f2929;
+    /*border-radius: 10px;*/
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    gap:20px;
+}
+.bar .Logo .bx-book-alt{
+    width: 30px;
+    height: 30px;
+    color:#193d49;
+
+}
+
+.back{
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+    background-color: white;
+    border-radius: 20px;
+    height: 30px;
+}
+
+.backToSearch{
+    color:white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 25px;
+    background-color: black;
+    border-radius: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.bookInfo{
+    padding: 0 0 0 30px;
+    width: auto;
+}
+
+.optionBar{
+    width: 600px;
+    height: auto;
+    padding: 0 0 0 30px;
+}
+
+.owner{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.personName{
+    padding: 5px 5px 5px 5px;
+    text-decoration: none;
+    color:white;
+    width: auto;
+}
+
+.formRelease{
+    padding: 0 0 0 10px;
+}
+
+.labelRelease input{
+    color:white;
+    background-color: black;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 2px;
+    border-radius: 20px;
+    padding: 5px 5px 5px 5px;
+    width: 130px;
+}
+
+.peopleOptionRectangle{
+    display: flex;
+    color:white;
+    padding: 0 0 0 10px;
+}
+
+.select{
+    border-radius: 10px;
+    background-color: black;
+    padding: 2px 2px 2px 2px;
+    color:white;
+}
+
+.labelinput input{
+    border-radius: 10px;
+    background-color: black;
+    padding: 2px 2px 2px 2px;
+    color:white;
+}
+
+.buttonBar{
+    text-decoration: none;
+    display: flex;
+    width: auto;
+    gap:20px;
+    padding: 5px 5px 5px 50px;
+}
+
+.linkToEdit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 30px;
+    border-radius: 20px;
+    padding: 5px 5px 5px 5px;
+    border-style: solid;
+    border-color: white;
+    background-color: black;
+    color:white;
+}
+
+.DeleteBook{
+    display: flex;
+    width: auto;
+    height: 30px;
+    border-radius: 20px;
+    padding: 5px 5px 5px 5px;
+    border-style: solid;
+    border-color: white;
+    background-color: black;
+    color:white;
+}
+
+p{
+    color: whitesmoke;
+}
+
+
+
+footer{
+    width: 100%;
+    color: #a99b9b;
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+    border-radius: 2px;
+    margin-top: auto;
+
+}

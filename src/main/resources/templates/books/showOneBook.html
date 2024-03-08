@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{Style/showOneBook.css}" rel="stylesheet">
+<!--        <link  rel="stylesheet" href="../../static/books/Style/showOneBook.css">-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Show</title>
+</head>
+
+<body>
+
+<div class="bar">
+    <div class="Logo">
+        <label >Mira </label>
+        <i class='bx bx-book-alt' ></i>
+    </div>
+
+    <div class="back">
+        <a class="backToSearch" href="/books/search">
+            Back
+        </a>
+    </div>
+</div>
+
+<div class="bookInfo">
+    <h2>Book {</h2>
+    <p th:text="${'ID : ' + book.getId()}">Book Id </p>
+    <p th:text="${'Name : ' +  book.getBookName()}">Book Name </p>
+    <p th:text="${'Owner ID : ' + book.getOwner()}">Book Owner </p>
+    <p th:text="${'Book release Date : ' + book.getReleaseDate()}">Book Release Date </p>
+    <h2>}</h2>
+</div>
+
+<div class="buttonBar">
+
+    <a class="linkToEdit" th:href="@{/books/edit/{id}(id=${book.getId()})}">Edit Book</a>
+
+    <form  th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
+        <input class="DeleteBook" type="submit" value="Delete Book"/>
+    </form>
+
+</div>
+
+<div class="optionBar">
+    <h2>Owner {</h2>
+    <div class="owner" th:if="${owner}">
+
+<!--        <span>The book is assigned to : </span> -->
+        <a th:href="@{/people/{id}(id=${owner.getId()})}">
+            <p class="personName" th:text="${'ID : ' + owner.getId()}">Person ID</p>
+            <p class="personName" th:text="${'Name : ' + owner.getName()}">Person name</p>
+            <p class="personName" th:text="${'BirthDate : ' + owner.getDateOfBirth()}">Person Date of Birth</p>
+        </a>
+
+
+        <form class="formRelease" th:method="PATCH" th:action="@{books/{id}/release(id=${book.getId()})}">
+
+            <label class="labelRelease">
+                <input th:type="submit" value="Release the book?"/>
+            </label>
+
+        </form>
+
+    </div>
+
+    <div class="peopleOptionRectangle" th:if="${people}">
+
+        <span>The book is free , Select the person to assign : </span>
+
+        <form class="OptionForm" th:method="PATCH" th:action="@{books/{id}/assign(id=${book.getId()})}">
+
+<!--            <label for="person"> Choose the person to assign</label>-->
+            <select class="select" th:object="${person}" th:field="*{id}" id="person">
+
+                <option class="option" th:each="person : ${people}" th:value="${person.getId()}" th:text="${person.getName()}">
+                </option>
+
+            </select>
+
+            <label class="labelinput">
+                <input th:type="submit" value="Assign">
+            </label>
+
+        </form>
+    </div>
+
+    <h2>}</h2>
+</div>
+
+
+
+
+<footer>
+    <p>&copy; 2024 Book System</p>
+</footer>
+</body>
+</html>

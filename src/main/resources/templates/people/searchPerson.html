@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Person</title>
+<!--    <link rel="stylesheet" href="../../static/people/Style/searchPerson.css"/>-->
+    <link th:href="@{Style/searchPerson.css}" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+<div class="bar">
+    <div class="Logo">
+        <label >Mira </label>
+        <i class='bx bx-book-alt' ></i>
+    </div>
+
+    <div class="people">
+        <a class="newPerson" href="/people/new">Create person</a>
+    </div>
+    <div class="books">
+        <a class="bookList" href="/books/search">Search Book</a>
+    </div>
+</div>
+
+<form class="searchForm" th:method="POST" th:action="@{/people/search}">
+
+    <div class="searchRectangle">
+        <input type="number" id="id" name="id" placeholder="Enter ID here..." required/>
+        <button class="btn" type="submit" value="Search!">Search!</button>
+    </div>
+
+</form>
+
+<form class="searchResult">
+
+    <div class="result">
+        <div class="notFound" th:if="${message}">
+            <a th:text="${SearchId} + '- ID does not exist!' " > Error </a>
+        </div>
+
+        <div class="foundPerson" th:if="${foundPerson != null}">
+            <a class="links" th:href="@{/people/{id}(id=${foundPerson.getId()})}"
+               th:text="${'ID : ' + foundPerson.getId() + ' - ' + 'Name : ' + foundPerson.getName() + '   - ' + 'Birth Date : ' + foundPerson.getDateOfBirth()}">user
+            </a>
+        </div>
+    </div>
+
+</form>
+
+<footer>
+    <p>&copy; 2024 People System</p>
+</footer>
+</body>
+</html>

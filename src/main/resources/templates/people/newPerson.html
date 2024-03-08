@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+    <link th:href="@{Style/newPerson.css}" rel="stylesheet">
+<!--    <link rel="stylesheet" href="../../static/Style/newPerson.css"/>-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+
+    <div class="bar">
+        <div class="Logo">
+            <label class="Mira">Mira </label>
+            <i class='bx bx-book-alt' ></i>
+        </div>
+
+        <div class="back">
+            <a class="backToSearch" href="/people/search">
+                Back
+            </a>
+        </div>
+    </div>
+
+    <form class="form" th:method="POST" th:action="@{/people}" th:object="${person}">
+
+        <div class="rectangle">
+            <h1>New person info</h1>
+            <hr/>
+            <br/>
+            <br/>
+            <br/>
+            <label class="formLabel" for="name">Enter name: </label>
+            <input type="text" th:field="*{name}" id="name" placeholder="Full Name..."/>
+            <div class="error" style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+            <br/>
+            <label class="formLabel" for="dateOfBirth">Enter birth-date: </label>
+            <input type="text" th:field="*{dateOfBirth}" id="dateOfBirth" placeholder="dd/MM/yyyy"/>
+            <div class="error" style="color:red" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">dateOfBirth Error</div>
+            <br/>
+            <input class="btn" type="submit" value="Create!"/>
+        </div>
+    </form>
+
+    <footer>
+        <p>&copy; 2024 People System</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('../../bookSearch.jpg') no-repeat center;
+    background-size: cover;
+
+}
+
+
+.bar{
+
+    gap: 40px;
+    display: flex;
+    height: 50px;
+    background-color: black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.bar .books{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 30px;
+    margin-top: 13px;
+    margin-bottom: 10px;
+    background-color: #193d49;
+    border-radius: 20px;
+}
+.bar .books .newBook{
+    padding: 5px 5px 5px 5px;
+    font-family: "Courier New", monospace;
+    color: #629191;
+}
+
+
+.bar .people{
+    margin-right:5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 30px;
+    background-color: #193d49;
+    margin-top: 13px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.bar .people .peopleSearch{
+    padding: 5px 5px 5px 5px;
+    font-family: "Courier New", monospace;
+    color: #629191;
+}
+
+a{
+    text-decoration: none;
+}
+
+.bar .Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    color: #193d49;
+    font-family: "Lucida Handwriting", cursive;
+    font-size: 30px;
+    /*margin-left: 20px;*/
+    border-style: solid;
+    border-color: #2f2929;
+    /*border-radius: 10px;*/
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    gap:20px;
+}
+.bar .Logo .bx-book-alt{
+    width: 30px;
+    height: 30px;
+    color:#193d49;
+
+}
+
+.formSearch{
+    width: 100%;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formSearch .searchField{
+    width: 50%;
+    height: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+
+.formSearch .searchField input{
+    background-color: black;
+    width: 80%;
+    height: 30px;
+    border-radius: 20px;
+    padding: 5px 5px 5px 5px;
+    color:white;
+}
+.formSearch .searchField .btn{
+    width: 17%;
+    height: 30px;
+    background-color: black;
+    color:white;
+    border-radius: 20px;
+}
+
+.formSearch .bookNotFound{
+    width: auto;
+    height: 30px;
+    background-color: black;
+    padding: 5px 5px 5px 5px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color:red;
+
+}
+.booklayout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+}
+.foundBooksField{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border-color: black;
+    border-style: solid;
+    gap: 10px;
+}
+
+hr{
+    width: 100%;
+    border-color:black;
+}
+.foundBooks{
+    height: 30px;
+}
+.foundBooks > a{
+    text-decoration: none;
+    background-color: white;
+    width: auto;
+    height: 30px;
+    color:black;
+    border-radius:20px;
+    padding: 5px 5px 5px 5px;
+
+}
+
+footer{
+    width: 100%;
+    color: #a99b9b;
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+    border-radius: 2px;
+    margin-top: auto;
+
+}
+

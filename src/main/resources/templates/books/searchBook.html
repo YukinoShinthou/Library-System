@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <link th:href="@{Style/searchBook.css}" rel="stylesheet">
+<!--    <link  rel="stylesheet" href="../../static/books/Style/searchBook.css">-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Search a Book</title>
+</head>
+<body>
+
+<div class="bar">
+    <div class="Logo">
+        <label >Mira </label>
+        <i class='bx bx-book-alt' ></i>
+    </div>
+
+    <div class="books">
+        <a class="newBook" href="/books/new">Create Book</a>
+    </div>
+    <div class="people">
+        <a class="peopleSearch" href="/people/search">Search Person</a>
+    </div>
+</div>
+
+<br/>
+
+<form class="formSearch" th:method="POST" th:action="@{/books/search}">
+    <div class="searchField">
+        <input type="text" id="bookName" name="bookName" placeholder="Enter the Name of the Book" required/>
+        <input class="btn" type="submit" value="Search!">
+    </div>
+    <div class="bookNotFound" th:if="${message}">
+    <a th:text="${SearchName} + ': is not found' " > not Found </a>
+</div>
+
+</form>
+
+
+
+
+<div class="booklayout">
+    <div class="foundBooksField" th:if="${foundBooks != null}">
+
+        <h3>Here is the list of found books </h3>
+        <hr/>
+
+        <div class="foundBooks" th:each="book : ${foundBooks}">
+            <a th:href="@{/books/{id}(id=${book.getId()})}"
+               th:text="${'ID : ' + book.getId() + ' - ' + ' Name : ' + book.getBookName() + ' - ' + ' Released Date :  ' + book.getReleaseDate()}">Each found Book</a>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Book System</p>
+</footer>
+
+</body>
+</html>

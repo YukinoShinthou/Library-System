@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+<!--    <link th:href="@{Style/showAllBooks.css}" rel="stylesheet">-->
+        <link  rel="stylesheet" href="../../static/Style/showAllBooks.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+<div th:each="book : ${books}">
+    <a th:href="@{/books/{id}(id=${book.getId()})}"
+       th:text="${book.getId() + ', ' + book.getBookName() + ', ' + book.getReleaseDate()}">user</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/books/new">Create new book</a>
+
+<div>
+    <a href="/people">People list</a>
+</div>
+
+<div>
+    <a href="/books/search">Search for a book</a>
+</div>
+</body>
+</html>

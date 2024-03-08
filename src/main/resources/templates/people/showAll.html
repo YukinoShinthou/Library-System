@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>People</title>
+    <link th:href="@{Style/showAllPeople.css}" rel="stylesheet">
+<!--    <link  rel="stylesheet" href="../../static/Style/showAllPeople.css">-->
+<!--    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>-->
+</head>
+<body>
+<form class="form">
+
+    <div class="peopleList" th:each="person : ${people}">
+        <a class="links" th:href="@{/people/{id}(id=${person.getId()})}"
+           th:text="${'ID : ' + person.getId() + ' - ' + 'Name : ' + person.getName() + '   - ' + 'Birth Date : ' + person.getDateOfBirth() + ' - ' + 'Timestamp : ' + person.getCreatedAt()}">user
+        </a>
+    </div>
+
+    <hr/>
+
+</form>
+
+<div class="bar">
+    <div class="people">
+        <a class="newPerson" href="/people/new">Create person</a>
+    </div>
+    <div class="books">
+        <a class="bookList" href="/books">Books list</a>
+    </div>
+
+    <div class="search">
+        <a class="searchPerson" href="/people/search">Search!</a>
+    </div>
+
+    <div class="back">
+        <a class="backToSearch" href="/people/search">
+            Back
+        </a>
+    </div>
+</div>
+
+<!--<script th:src="@{js/test.js}"></script>-->
+<footer>
+    <p>&copy; 2024 People System</p>
+</footer>
+</body>
+</html>

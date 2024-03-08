@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+        <link th:href="@{Style/newBook.css}" rel="stylesheet">
+<!--    <link  rel="stylesheet" href="../../static/books/Style/newBook.css">-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>New person</title>
+</head>
+<body>
+<div class="bar">
+    <div class="Logo">
+        <label >Mira </label>
+        <i class='bx bx-book-alt' ></i>
+    </div>
+
+    <div class="back">
+        <a class="backToSearch" href="/books/search">
+            Back
+        </a>
+    </div>
+</div>
+
+<div class="newBookForm">
+
+    <form class="newBook" th:method="POST" th:action="@{/books}" th:object="${book}">
+
+        <h2>New Book</h2>
+        <hr/>
+        <br/>
+
+    <!--    <label for="bookName">Enter name of the book: </label>-->
+        <input type="text" th:field="*{bookName}" id="bookName" placeholder="Enter name of the book" required/>
+        <div class="error" style="color:red" th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}">Name Error</div>
+        <br/>
+    <!--    <label for="releaseDate">Enter the Released Date of Book: </label>-->
+        <input type="text" th:field="*{releaseDate}" id="releaseDate" placeholder="Enter the Released Date of Book" required/>
+        <div class="error" style="color:red" th:if="${#fields.hasErrors('releaseDate')}" th:errors="*{releaseDate}">Age Error</div>
+        <br/>
+        <button class="btn" type="submit" value="Create!">Create!</button>
+
+    </form>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Book System</p>
+</footer>
+</body>
+</html>

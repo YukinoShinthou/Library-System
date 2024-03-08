@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+        <link th:href="@{Style/editBook.css}" rel="stylesheet">
+<!--    <link  rel="stylesheet" href="../../static/books/edit/Style/editBook.css">-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Update person</title>
+</head>
+
+<body>
+
+<div class="bar">
+    <div class="Logo">
+        <label >Mira </label>
+        <i class='bx bx-book-alt' ></i>
+    </div>
+
+    <div class="back">
+        <a class="backToSearch" href="/books/search">
+            Back
+        </a>
+    </div>
+</div>
+<div class="updateForm" >
+    <form class="editForm" th:method="PATCH" th:action="@{/books/{id}(id=${book.getId()})}" th:object="${book}">
+    <!--    <label for="bookName">Enter name: </label>-->
+        <h2>Update Book</h2>
+        <hr/>
+        <br/>
+        <input type="text" th:field="*{bookName}" id="bookName" placeholder="Enter new name" required/>
+        <div class="error" style="color:red" th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}">bookName Error</div>
+        <br/>
+    <!--    <label for="releaseDate">Enter the Released Date of Book: </label>-->
+        <input type="text" th:field="*{releaseDate}" id="releaseDate" placeholder="Enter the new Release Date"/>
+        <div class="error" style="color:red" th:if="${#fields.hasErrors('releaseDate')}" th:errors="*{releaseDate}">releaseDate Error</div>
+        <br/>
+        <input class="btn" type="submit" value="Update!"/>
+    </form>
+</div>
+<footer>
+    <p>&copy; 2024 Book System</p>
+</footer>
+</body>
+</html>

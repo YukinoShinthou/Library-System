@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+<!--    <link rel="stylesheet" href="../../static/people/Style/showOnePerson.css"/>-->
+        <link th:href="@{Style/showOnePerson.css}" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Show</title>
+</head>
+<body>
+<div class="bar">
+    <div class="Logo">
+        <label >Mira </label>
+        <i class='bx bx-book-alt' ></i>
+    </div>
+
+    <div class="back">
+        <a class="backToSearch" href="/people/search">
+            Back
+        </a>
+    </div>
+</div>
+
+<div class="mainBox">
+    <h1 class="titleOfPerson">Person { </h1>
+    <p class="person" th:text="${'ID : ' + person.getId()}">ID</p>
+    <p class="person" th:text="${'Name : ' + person.getName()}">Name</p>
+    <p class="person" th:text="${'BirthDate : ' + person.getDateOfBirth()}">Date of Birth</p>
+
+    <h1 class="titleOfPerson"> } </h1>
+
+    <h1 class="titleOfPerson">Owned books { </h1>
+    <div class="notBorrowed" th:if="${books.isEmpty()}">
+        <span>This person hasn't borrowed a book</span>
+    </div>
+
+    <div class="books" th:if="${!books.isEmpty()}" th:each="book : ${books}">
+        <a class="eachBook" th:href="@{/books/{id}(id=${book.getId()})}"
+           th:text="${'Book ID : ' + book.getId() + ' - Name : ' + book.getBookName() + ' - Relase Date : ' + book.getReleaseDate()}">user</a>
+    </div>
+
+    <h1 class="titleOfPerson">}</h1>
+</div>
+<div class="tools" >
+    <div class="edit">
+        <a class="editLink" th:href="@{/people/edit/{id}(id=${person.getId()})}">Edit Person</a>
+    </div>
+
+    <div class="delete">
+        <form class="deleteForm" th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+            <input class="buttonDelete" type="submit" value="Delete Person"/>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+
+<footer>
+    <p>&copy; 2024 People System</p>
+</footer>
+</body>
+</html>
